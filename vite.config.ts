@@ -19,7 +19,9 @@ export default defineConfig({
     }),
     nitroV2Plugin({
       config: {
-        preset: process.env.NITRO_PRESET || (process.env.VERCEL ? "vercel" : "node-server"),
+        preset:
+          process.env.NITRO_PRESET ||
+          (process.env.VERCEL ? "vercel" : process.env.NETLIFY ? "netlify" : "node-server"),
       },
     }),
     viteReact(),
